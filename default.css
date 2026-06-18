@@ -24,28 +24,33 @@ h1 {
 
 .subtitle {
   margin: 0;
+  color: #aaaaaa;
 }
 
 .bio {
   margin: 0.8em 0 0;
-  color: #cccccc;
-  font-size: 0.9em;
+  color: #d8d0c8;
   line-height: 1.6;
 }
 
 .links {
   margin: 0.6em 0 0;
   display: flex;
-  gap: 1.2em;
+  gap: 0.6em;
+  align-items: center;
+}
+
+.sep {
+  color: #444444;
 }
 
 a {
   text-decoration: none;
-  color: MediumPurple;
+  color: #8b5cf6;
 }
 
 a:hover {
-  color: #c8a8ff;
+  color: #c4a8ff;
 }
 
 hr {
@@ -55,7 +60,7 @@ hr {
 }
 
 .entry {
-  margin-bottom: 1.5em;
+  margin-bottom: 2.2em;
 }
 
 .entry > ul > li {
@@ -69,21 +74,23 @@ hr {
 .entry-title {
   font-weight: bold;
   margin-bottom: 0.1em;
+  color: #e8e0ff;
 }
 
 
 .item-desc {
-  font-size: 0.78em;
+  font-size: 0.85em;
   margin-top: 0.1em;
+  color: #999999;
 }
 
 .tag {
-  color: #888888;
-  font-size: 0.85em;
+  color: #4d7fff;
+  font-size: 0.9em;
 }
 
 .year {
-  color: #555555;
+  color: #777777;
   font-size: 0.8em;
   font-weight: normal;
 }
