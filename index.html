@@ -6,17 +6,16 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Luis Wirth" />
-<meta name="keywords" content="Luis Wirth, ETH Zurich, CSE, mathematics, finite elements, Rust, Lean4" />
-<meta name="description" content="Luis Wirth — MSc CSE student at ETH Zurich, working on finite element methods, formal verification, and scientific computing." />
+<meta name="keywords" content="Luis Wirth, ETH Zurich, CSE, physics-informed ML, AI4Science, SciML, finite elements, differential forms, exterior calculus, Rust, Lean4" />
+<meta name="description" content="Luis Wirth. MSc CSE student at ETH Zurich. Physics-inspired ML and structure-preserving numerical methods." />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lwirth.com/" />
 <meta property="og:title" content="Luis Wirth" />
-<meta property="og:description" content="MSc CSE student at ETH Zurich, working on finite element methods, formal verification, and scientific computing." />
+<meta property="og:description" content="MSc CSE student at ETH Zurich. Physics-inspired ML and structure-preserving numerical methods." />
 
 <link rel="stylesheet" type="text/css" href="default.css">
-<!-- <link rel="icon" href=""> -->
-<title>lwirth @ ethz</title>
+<title>Luis Wirth @ ETHz</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap')
@@ -27,36 +26,76 @@
 <body>
 
 <div class="container">
-  <h1 style="margin-bottom: 0;">Luis Wirth</h1>
+  <h1>Luis Wirth</h1>
   <p class="subtitle">MSc CSE @ ETHz</p>
+  <p class="links">
+    <a href="mailto:luwirth@ethz.ch">Email</a>
+    <a href="https://lwirth.com/cv" target="_blank" rel="noopener noreferrer">CV</a>
+    <a href="https://lwirth.com/linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://lwirth.com/github" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://lwirth.com/youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+  </p>
+  <p class="bio">I work on physics-inspired machine learning and structure-preserving numerical methods, sitting at the intersection of AI4Science/SciML and mathematical physics.</p>
 
-  <h3>Announcements</h3>
-  <ul>
-    <li>[ZUCCMAP Talk] Lean4 and the Curry-Howard Isomorphism.
-      <ul>
-        <li>Watch it on <a href="https://youtu.be/Sy_4z751YWI" target="_blank" rel="noopener noreferrer">YouTube</a>!</li>
-      </ul>
-    </li>
-    <li>[BSc Thesis] Rust Implementation of Finite Element Exterior Calculus.
-      <ul>
-        <li>Paper on <a href="https://arxiv.org/abs/2506.02429" target="_blank" rel="noopener noreferrer">arXiv</a>!</li>
-        <li>Presentation on <a href="https://youtu.be/A4px5jTXcOM" target="_blank" rel="noopener noreferrer">YouTube</a>!</li>
-        <li>Implementation Formoniq on <a href="https://github.com/luiswirth/formoniq" target="_blank" rel="noopener noreferrer">GitHub</a>!</li>
-      </ul>
-    </li>
-    <li>[YT Video] What is Finite Element Exterior Calculus?
-      <ul>
-        <li>Watch it on <a href="https://youtu.be/9dmWMQAXuRg" target="_blank" rel="noopener noreferrer">YouTube</a>!</li>
-      </ul>
-    </li>
-  </ul>
+  <hr>
 
-  <h3>Links</h3>
-  <ul>
-    <li><a href="https://lwirth.com/cv" target="_blank" rel="noopener noreferrer">CV</a></li>
-    <li><a href="https://lwirth.com/linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    <li><a href="https://lwirth.com/github" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-  </ul>
+  <div class="entry">
+    <div class="entry-title">Ehrenpreis-Palamodov Gaussian Process for Maxwell's Equations <span class="wip">[in progress]</span></div>
+    <ul>
+      <li><span class="tag">[Semester Project]</span> EPGP Benchmark for PEC Cavity Reaction Field <span class="year">2026</span>
+        <ul>
+          <li>Thesis on <a href="https://github.com/luiswirth/epgp-thesis" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><em>maxwellgp</em>: EPGP for Time-Harmonic Maxwell's Equations on <a href="https://github.com/luiswirth/maxwellgp" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><em>cavity-benchmark</em>: Flagship benchmark for learning EM fields via EPGP on <a href="https://github.com/luiswirth/cavity-benchmark" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><em>cavity-epgp</em>: EPGP applied to PEC Cavity on <a href="https://github.com/luiswirth/cavity-epgp" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><em>cavity-bem</em>: Boundary Element Method for PEC Cavity on <a href="https://github.com/luiswirth/cavity-bem" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-title">Finite Element Exterior Calculus &amp; Differential Forms</div>
+    <ul>
+      <li><span class="tag">[YT Video]</span> What is Finite Element Exterior Calculus? <span class="year">2025</span>
+        <ul>
+          <li>Watch on <a href="https://youtu.be/zjqvF4Gd2fw" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        </ul>
+      </li>
+      <li><span class="tag">[BSc Thesis]</span> Rust Implementation of FEEC on Coordinate-Free Simplicial Complexes <span class="year">2025</span>
+        <ul>
+          <li>Watch on <a href="https://youtu.be/A4px5jTXcOM" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li>Paper on <a href="https://arxiv.org/abs/2506.02429" target="_blank" rel="noopener noreferrer">arXiv</a></li>
+          <li>Implementation <em>Formoniq</em> on <a href="https://github.com/luiswirth/formoniq" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li>Thesis source (Typst) on <a href="https://github.com/luiswirth/bsc-thesis" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </li>
+      <li><span class="tag">[Guest Lecture]</span> Discretization of Differential Forms for the Numerical Solution of PDEs <span class="year">2026</span>
+        <ul>
+          <li>Watch on <a href="https://youtu.be/oXJbLh8aBRs" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li>Slides on <a href="https://github.com/luiswirth/feec-pres" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </li>
+      <li><span class="tag">[Talk]</span> Ψec: A Local Spectral Exterior Calculus <span class="year">2026</span>
+        <ul>
+          <li>Slides on <a href="https://github.com/luiswirth/psiec-pres" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-title">Formal Methods &amp; Type Theory</div>
+    <ul>
+      <li><span class="tag">[ZUCCMAP]</span> Lean4 and the Curry-Howard Isomorphism <span class="year">2025</span>
+        <ul>
+          <li>Watch on <a href="https://youtu.be/Sy_4z751YWI" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li>Slides on <a href="https://github.com/luiswirth/zuccmap2024fs" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 </body>
