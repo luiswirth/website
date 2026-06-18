@@ -58,11 +58,24 @@ hr {
   margin-bottom: 1.5em;
 }
 
+.entry > ul > li {
+  margin-top: 0.6em;
+}
+
+.entry > ul > li:first-child {
+  margin-top: 0;
+}
+
 .entry-title {
   font-weight: bold;
   margin-bottom: 0.1em;
 }
 
+
+.item-desc {
+  font-size: 0.78em;
+  margin-top: 0.1em;
+}
 
 .tag {
   color: #888888;
