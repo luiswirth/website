@@ -84,11 +84,15 @@
       <li><span class="tag">[Library]</span> Structure-preserving finite element exterior calculus engine in Rust <span class="wip">[ongoing]</span>
         <div class="item-desc"><em>Coordinate-free PDE solving with differential forms on pseudo-Riemannian manifolds of arbitrary dimension</em></div>
         <ul>
-          <li>One engine over any metric signature: Hodge-Laplace, and Maxwell as a Hodge-Dirac operator, on Riemannian and Lorentzian (spacetime) meshes via Regge calculus</li>
-          <li>~12k lines of pure Rust across 8 modular crates, no external solver toolchain; runs in the browser via WebGPU and WebAssembly</li>
-          <li>Live demo: <a href="https://lwirth.com/formoniq">lwirth.com/formoniq</a></li>
-          <li>Repository: <a href="https://github.com/luiswirth/formoniq">GitHub:formoniq</a></li>
+          <li>Structure-preserving engine for the Hodge-Laplace and Hodge-Dirac operators</li>
+          <li>Arbitrary dimension and form degree, with support for non-trivial topology</li>
+          <li>Regge calculus for any metric signature: Riemannian and Lorentzian (spacetime)</li>
+          <li>Discretization of the de Rham complex (nilpotency, cohomolgy, and Hodge decomposition)</li>
+          <li>~12k lines of pure Rust across 8 modular crates, each a self-contained math library</li>
+          <li>Parallel solver toolchain in Rust (faer direct solves, rayon-parallel assembly)</li>
           <li>Began as the BSc thesis implementation, now a standalone library</li>
+          <li>Live Demo: <a href="https://lwirth.com/formoniq">lwirth.com/formoniq</a> (WebGPU/WebAssembly)</li>
+          <li>Repository: <a href="https://github.com/luiswirth/formoniq">GitHub:formoniq</a></li>
         </ul>
       </li>
     </ul>
