@@ -1,0 +1,19 @@
+/github    https://github.com/luiswirth                       301
+/linkedin  https://www.linkedin.com/in/luis-wirth-256618172/  301
+/youtube   https://www.youtube.com/@luiswirth                 301
+
+# Projects that used to be served under this domain.
+/cv                 https://cv.lwirth.com/                      301
+/cv/*               https://cv.lwirth.com/:splat                301
+/cavity-thesis      https://cavity-thesis.lwirth.com/           301
+/cavity-thesis/*    https://cavity-thesis.lwirth.com/:splat     301
+/feec-pres          https://feec-pres.lwirth.com/               301
+/feec-pres/*        https://feec-pres.lwirth.com/:splat         301
+/psiec-pres         https://psiec-pres.lwirth.com/              301
+/psiec-pres/*       https://psiec-pres.lwirth.com/:splat        301
+/zuccmap2024fs      https://zuccmap2024fs.lwirth.com/           301
+/zuccmap2024fs/*    https://zuccmap2024fs.lwirth.com/:splat     301
+/formoniq-studio    https://formoniq-studio.lwirth.com/         301
+/formoniq-studio/*  https://formoniq-studio.lwirth.com/:splat   301
+/carveout           https://carveout.lwirth.com/                301
+/carveout/*         https://carveout.lwirth.com/:splat          301

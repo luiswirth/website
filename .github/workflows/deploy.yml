@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # Everything tracked is the site, except the repository's own files.
+      - name: Collect site
+        run: |
+          mkdir public
+          git ls-files -z ':!:.github' ':!:.gitignore' | xargs -0 cp --parents -t public
+
+      # The Cloudflare Pages project is named after the repository.
+      - uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >
+            pages deploy public
+            --project-name=${{ github.event.repository.name }}
+            --branch=main
