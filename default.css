@@ -61,8 +61,11 @@ h1 {
   align-items: center;
 }
 
-.sep {
-  color: #444444;
+.icon {
+  display: block;
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
 }
 
 a {
