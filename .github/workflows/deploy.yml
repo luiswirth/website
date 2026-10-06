@@ -22,7 +22,7 @@ jobs:
       - name: Collect site
         run: |
           mkdir public
-          git ls-files -z ':!:.github' ':!:.gitignore' | xargs -0 cp --parents -t public
+          git ls-files -z ':!:.github' ':!:.gitignore' ':!:AGENTS.md' | xargs -0 cp --parents -t public
 
       # The Cloudflare Pages project is named after the repository.
       - uses: cloudflare/wrangler-action@v4
