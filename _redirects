@@ -15,3 +15,5 @@
 /zuccmap2024fs/*    https://zuccmap2024fs.lwirth.com/:splat     301
 /formoniq-studio    https://formoniq-studio.lwirth.com/         301
 /formoniq-studio/*  https://formoniq-studio.lwirth.com/:splat   301
+/formoniq           https://formoniq-studio.lwirth.com/         301
+/formoniq/*         https://formoniq-studio.lwirth.com/:splat   301
