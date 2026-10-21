@@ -22,7 +22,8 @@ The site at lwirth.com: static HTML, no build.
     `www` and `ethz` to the apex.
 - Credentials are in `lwirth-macbook:~/secrets`:
   - `cloudflare-api-token.txt`: The agents' token for the Cloudflare API.
-    It can purge the zone's cache, which serves pages for up to a week after a deploy.
+    It covers all accounts and zones, and everything but billing, the registrar, members and tokens.
+    Purging the zone's cache matters, since it serves pages for up to a week after a deploy.
   - `cloudflare-ci-token.txt`: Cloudflare Pages only.
     Each deploying repository holds it as the secret `CLOUDFLARE_API_TOKEN`,
     next to `CLOUDFLARE_ACCOUNT_ID`.
