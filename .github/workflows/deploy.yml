@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
@@ -22,14 +22,11 @@ jobs:
       - name: Collect site
         run: |
           mkdir public
-          git ls-files -z ':!:.github' ':!:.gitignore' ':!:AGENTS.md' | xargs -0 cp --parents -t public
+          git ls-files -z ':!:.github' ':!:.gitignore' ':!:AGENTS.md' ':!:wrangler.jsonc' | xargs -0 cp --parents -t public
 
-      # The Cloudflare Pages project is named after the repository.
+      # The Cloudflare Worker serves the site as static assets.
       - uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: >
-            pages deploy public
-            --project-name=${{ github.event.repository.name }}
-            --branch=main
+          command: deploy

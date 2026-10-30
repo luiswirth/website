@@ -6,9 +6,9 @@ The site at lwirth.com: static HTML, no build.
 
 - Everything on lwirth.com is hosted on Cloudflare:
   DNS, redirects and sites.
-- One repository is one Cloudflare Pages project:
-  Named after the repository and served at `<repo>.lwirth.com`.
-  This repository is the project `website`, served at the apex.
+- One repository is one Cloudflare Worker with static assets:
+  Named after the repository and served at `<repo>.lwirth.com`, its custom domain.
+  This repository is the Worker `website`, served at the apex.
   A push to main deploys it through `.github/workflows/deploy.yml`.
   Typst documents deploy through `typst-deploy`.
 - Each piece of content has one URL:
@@ -24,6 +24,6 @@ The site at lwirth.com: static HTML, no build.
   - `cloudflare-api-token.txt`: The agents' token for the Cloudflare API.
     It covers all accounts and zones, and everything but billing, the registrar, members and tokens.
     Purging the zone's cache matters, since it serves pages for up to a week after a deploy.
-  - `cloudflare-ci-token.txt`: Cloudflare Pages only.
+  - `cloudflare-ci-token.txt`: Cloudflare Workers scripts only.
     Each deploying repository holds it as the secret `CLOUDFLARE_API_TOKEN`,
     next to `CLOUDFLARE_ACCOUNT_ID`.
