@@ -19,7 +19,10 @@ The site at lwirth.com: static HTML, no build.
     and the legacy paths of sites that moved to their subdomain.
     Nothing new links to a legacy path.
   - Host redirects are redirect rules of the Cloudflare zone:
-    `www` and `ethz` to the apex.
+    `www` and `ethz` to the apex, `agentics` to its page,
+    and the former hosts `*.agentic` to their `*.agentics`.
+    A host two levels deep only gets a certificate as a Worker's custom domain,
+    so the Worker `agentic-redirect` holds the former hosts and serves nothing.
 - Credentials are in `lwirth-macbook:~/secrets`:
   - `cloudflare-api-token.txt`: The agents' token for the Cloudflare API.
     It covers all accounts and zones, and everything but billing, the registrar, members and tokens.
