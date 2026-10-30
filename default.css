@@ -80,15 +80,24 @@ a:hover {
 hr {
   border: none;
   border-top: 1px solid #333333;
-  margin: 1.4em 0;
+  margin: 1em 0;
 }
 
 .entry {
-  margin-bottom: 2.2em;
+  margin-bottom: 1.2em;
+}
+
+.entry ul {
+  margin: 0.3em 0 0;
+  line-height: 1.35;
+}
+
+.entry ul ul {
+  margin: 0;
 }
 
 .entry > ul > li {
-  margin-top: 0.6em;
+  margin-top: 0.3em;
 }
 
 .entry > ul > li:first-child {
@@ -123,4 +132,35 @@ hr {
   color: #f0a040;
   font-size: 0.8em;
   font-weight: normal;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav .entry-title a {
+  color: #a080ff;
+}
+
+.nav .desc {
+  color: #999999;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.back {
+  margin: 0 0 0.6em;
+  font-size: 0.85em;
+}
+
+.back a {
+  color: #999999;
+  text-decoration: none;
+}
+
+.back a:hover {
+  color: #e8e0ff;
 }

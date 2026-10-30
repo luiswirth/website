@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="author" content="Luis Wirth" />
-<meta name="description" content="Luis Wirth. MSc CSE student at ETH Zurich. Physics-inspired ML and structure-preserving numerical methods." />
-<meta name="keywords" content="Luis Wirth, ETH Zurich, CSE, physics-informed, AI4Science, SciML, finite elements, differential forms, exterior calculus, Rust, Lean4" />
+<meta name="description" content="Luis Wirth. MSc CSE student at ETH Zurich. Structure-preserving machine learning and numerical methods, and agnostic agent infrastructure." />
+<meta name="keywords" content="Luis Wirth, ETH Zurich, CSE, physics-informed, AI4Science, SciML, finite elements, differential forms, exterior calculus, Rust, Lean4, AI agents, agentic infrastructure" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Luis Wirth" />
 <meta property="og:title" content="Luis Wirth" />
 <meta property="og:url" content="https://lwirth.com/" />
-<meta property="og:description" content="MSc CSE student at ETH Zurich. Physics-inspired ML and structure-preserving numerical methods." />
+<meta property="og:description" content="MSc CSE student at ETH Zurich. Structure-preserving machine learning and numerical methods, and agnostic agent infrastructure." />
 <meta property="og:image" content="https://api.microlink.io/?url=https%3A%2F%2Flwirth.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630" />
 
 <base target="_blank">
@@ -41,103 +41,35 @@
     <a href="https://lwirth.com/youtube" aria-label="YouTube" title="YouTube"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
     <a href="https://orcid.org/0009-0001-9809-9517" aria-label="ORCID" title="ORCID"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></a>
   </p>
-  <p class="bio">I work on structure-preserving machine learning and numerical methods, leveraging differential geometry and mathematical physics.</p>
+  <p class="bio">I look for the minimal principled structure of a subject: in the mathematics of physical systems, and in the primitives of working with agents.</p>
   <p class="avail">Looking for an MSc thesis, and open to internships and collaborations in AI4Science and applied mathematics.</p>
 
+  
   <hr>
 
-  <div class="entry">
-    <div class="entry-title">MaxwellGP: Gaussian Process for Maxwell's Equations</div>
+  <div class="entry nav">
+    <div class="entry-title"><a href="research/" target="_self">Research →</a></div>
+    <div class="item-desc"><em>Structure-preserving machine learning and numerical methods</em></div>
     <ul>
-      <li><span class="tag">[Paper]</span> Gaussian Process for Source-Free Maxwell's Equations <span class="wip">[in progress]</span>
-        <div class="item-desc"><em>Research Assistant at the Seminar for Applied Mathematics (SAM), ETH Zurich</em></div>
-        <ul>
-          <li>Geometric field theory of electromagnetism on Lorentzian spacetime</li>
-          <li>GP kernel built by applying spectral exterior calculus to the Hodge–Dirac equation</li>
-          <li>Joint SIAM journal paper with Prof. Dr.-Ing. Stefan Kurz and Félix Lino Vittori</li>
-        </ul>
-      </li>
-      <!--
-      <li><span class="tag">[Paper]</span> Gaussian Process for Maxwell's Equations with Sources <span class="wip">[in progress]</span>
-        <ul>
-          <li></li>
-        </ul>
-      </li>
-      -->
-      <li><span class="tag">[Semester Project]</span> BEM Benchmark of the EPGP for Maxwell Cavity Scattering <span class="year">2026</span>
-        <div class="item-desc"><em>Supervised by Prof. Dr.-Ing. Stefan Kurz</em></div>
-        <ul>
-          <li>Thesis: <a href="https://cavity-thesis.lwirth.com">PDF</a> · <a href="https://github.com/luiswirth/cavity-thesis">GitHub:cavity-thesis</a></li>
-          <li>Code
-            <ul>
-              <li>Cavity benchmark on <a href="https://github.com/luiswirth/cavity-benchmark">GitHub:cavity-benchmark</a></li>
-              <li>EPGP for PEC Cavity on <a href="https://github.com/luiswirth/cavity-maxwellgp">GitHub:cavity-maxwellgp</a></li>
-              <li>BEM for PEC Cavity on <a href="https://github.com/luiswirth/cavity-bem">GitHub:cavity-bem</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><span class="tag">[Talk]</span> Ψec: A Local Spectral Exterior Calculus <span class="year">2026</span>
-        <ul>
-          <li>Fourier turns exterior calculus into exterior algebra</li>
-          <li>Slides: <a href="https://psiec-pres.lwirth.com">PDF</a> · <a href="https://github.com/luiswirth/psiec-pres">GitHub:psiec-pres</a></li>
-        </ul>
-      </li>
+      <li><a href="research/#maxwellgp" target="_self">MaxwellGP<span class="desc">: Gaussian Process for Maxwell's Equations</span></a></li>
+      <li><a href="research/#finite-element-exterior-calculus" target="_self">Finite Element Exterior Calculus<span class="desc">: Formoniq, a FEEC engine in Rust</span></a></li>
+      <li><a href="research/#proof-assistants" target="_self">Proof Assistants &amp; Type Theory<span class="desc">: Lean4 and the Curry–Howard Isomorphism</span></a></li>
     </ul>
   </div>
 
   <hr>
 
-  <div class="entry">
-    <div class="entry-title">Finite Element Exterior Calculus</div>
+  <div class="entry nav">
+    <div class="entry-title"><a href="agentic/" target="_self">Ag<sup>2</sup>: Agnostic Agentics →</a></div>
+    <div class="item-desc"><em>Bring your own agent: small pieces that each do one thing and work with any agent</em></div>
     <ul>
-      <li><span class="tag">[Library]</span> Formoniq: Structure-preserving FEEC engine in Rust <span class="wip">[ongoing]</span>
-        <div class="item-desc"><em>Coordinate-free PDE solving with differential forms on pseudo-Riemannian manifolds of arbitrary dimension</em></div>
-        <ul>
-          <li>Structure-preserving engine for the Hodge–Laplace and Hodge–Dirac operators</li>
-          <li>Arbitrary dimension and form degree, with support for non-trivial topology</li>
-          <li>Regge calculus for any metric signature: Riemannian and Lorentzian (spacetime)</li>
-          <li>Discretization of the de Rham complex (nilpotency, cohomology, and Hodge decomposition)</li>
-          <li>~24k lines of pure Rust across 8 modular crates, each a self-contained math library</li>
-          <li>Parallel solver toolchain in Rust (faer direct solves, rayon-parallel assembly)</li>
-          <li>Began as the BSc thesis implementation, now a standalone library</li>
-          <li>Live Demo: <a href="https://formoniq-studio.lwirth.com">formoniq-studio.lwirth.com</a> (WebGPU/WebAssembly)</li>
-          <li>Repository: <a href="https://github.com/luiswirth/formoniq">GitHub:formoniq</a>, viewer at <a href="https://github.com/luiswirth/formoniq-studio">GitHub:formoniq-studio</a></li>
-        </ul>
-      </li>
-      <li><span class="tag">[Guest Lecture]</span> Discretization of Differential Forms for the Numerical Solution of PDEs <span class="year">2026</span>
-        <div class="item-desc"><em>Given in the course "Electromagnetics and Differential Forms" (Prof. Dr.-Ing. Stefan Kurz)</em></div>
-        <ul>
-          <li>Video on <a href="https://youtu.be/oXJbLh8aBRs">YouTube</a></li>
-          <li>Slides: <a href="https://feec-pres.lwirth.com">PDF</a> · <a href="https://github.com/luiswirth/feec-pres">GitHub:feec-pres</a></li>
-        </ul>
-      </li>
-      <li><span class="tag">[BSc Thesis]</span> Rust Implementation of FEEC on Coordinate-Free Simplicial Complexes <span class="year">2025</span>
-        <div class="item-desc"><em>"The best BSc thesis I have seen in years" — Prof. Dr. Ralf Hiptmair</em></div>
-        <ul>
-          <li>Video on <a href="https://youtu.be/A4px5jTXcOM">YouTube</a></li>
-          <li>Thesis: <a href="https://arxiv.org/abs/2506.02429">arXiv:2506.02429</a> · <a href="https://github.com/luiswirth/bsc-thesis">GitHub:bsc-thesis</a></li>
-        </ul>
-      </li>
-      <li><span class="tag">[YT Video]</span> What is Finite Element Exterior Calculus? <span class="year">2025</span>
-        <ul>
-          <li>Video on <a href="https://youtu.be/zjqvF4Gd2fw">YouTube</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <hr>
-
-  <div class="entry">
-    <div class="entry-title">Proof Assistants &amp; Type Theory</div>
-    <ul>
-      <li><span class="tag">[ZUCCMAP]</span> Lean4 and the Curry–Howard Isomorphism <span class="year">2024</span>
-        <ul>
-          <li>Video on <a href="https://youtu.be/Sy_4z751YWI">YouTube</a></li>
-          <li>Slides: <a href="https://zuccmap2024fs.lwirth.com">PDF</a> · <a href="https://github.com/luiswirth/zuccmap2024fs">GitHub:zuccmap2024fs</a></li>
-        </ul>
-      </li>
+      <li><a href="agentic/#agentics" target="_self">Agentics<span class="desc">: Agents from first principles</span></a></li>
+      <li><a href="agentic/#anima" target="_self">anima<span class="desc">: The minimal harness</span></a></li>
+      <li><a href="agentic/#senses" target="_self">senses<span class="desc">: Give your agents more senses</span></a></li>
+      <li><a href="agentic/#daemon-agents" target="_self">Daemon agents<span class="desc">: Agents with a standing job</span></a></li>
+      <li><a href="agentic/#polylogue" target="_self">polylogue<span class="desc">: People and agents talking with each other</span></a></li>
+      <li><a href="agentic/#voice" target="_self">Voice<span class="desc">: Talk with your agent</span></a></li>
+      <li><a href="agentic/#vibe-together" target="_self">Vibe Together<span class="desc">: Collaborative vibe coding</span></a></li>
     </ul>
   </div>
 
