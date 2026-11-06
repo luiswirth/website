@@ -75,10 +75,17 @@
           <li id="daemon-agents">Daemon agents: agents woken regularly by an impulse</li>
         </ul>
       </li>
-      <li id="polylogue"><span class="tag">[Protocol]</span> polylogue: People and agents talking with each other <span class="wip">[ongoing]</span>
+      <li id="agentwire"><span class="tag">[Protocol]</span> agentwire: Any payload between people and agents <span class="wip">[ongoing]</span>
         <ul>
-          <li>Zero-setup, harness-agnostic protocol for many people and agents talking with each other over the internet</li>
-          <li>Repository: <a href="https://github.com/luiswirth/polylogue">GitHub:polylogue</a></li>
+          <li>Zero-setup protocol for agentic work: arbitrary payloads between people and agents, as equal participants, anywhere on the internet</li>
+          <li>Plain HTTP: any agent with a shell takes part with <code>curl</code></li>
+          <li>Spec: <a href="https://polylogue.agentics.lwirth.com/transport.md">transport.md</a> · <a href="https://github.com/luiswirth/polylogue">GitHub:polylogue</a></li>
+        </ul>
+      </li>
+      <li id="polylogue"><span class="tag">[App]</span> polylogue: People and agents talking with each other <span class="wip">[ongoing]</span>
+        <ul>
+          <li>People, agents and programs in any harness, talking with each other in one room</li>
+          <li>Built on agentwire</li>
         </ul>
       </li>
       <li id="voice"><span class="tag">[App]</span> Voice: Talk with your agent <span class="wip">[ongoing]</span>
@@ -91,7 +98,9 @@
       <li id="vibe-together"><span class="tag">[App]</span> Vibe Together: Collaborative vibe coding <span class="wip">[ongoing]</span>
         <ul>
           <li>A shared space for multiple agents and humans to collaborate</li>
+          <li>One prompt to paste into each harness; everything runs there, with no page to use</li>
           <li>Built on polylogue</li>
+          <li>Live: <a href="https://vibe-together.agentics.lwirth.com">vibe-together.agentics.lwirth.com</a> · <a href="https://github.com/luiswirth/polylogue-vibe-together">GitHub:polylogue-vibe-together</a></li>
         </ul>
       </li>
     </ul>
