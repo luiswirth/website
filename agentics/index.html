@@ -22,7 +22,19 @@
 <title>Ag²: Agnostic Agentics · Luis Wirth</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+#map { margin: 0.8em 0 1.4em; }
+#map-svg { display: block; width: 100%; max-width: 720px; height: auto; overflow: visible; }
+#map text { fill: #dddddd; font-family: "Source Code Pro", monospace; font-size: 13px; }
+#map .spec { fill: #111111; stroke: #aaaaaa; }
+#map .product { fill: #111111; stroke: #8b5cf6; }
+#map .design { stroke-dasharray: 4 3; }
+#map .edge { fill: none; stroke: #555555; shape-rendering: crispEdges; }
+#map .joint { fill: #555555; }
+#map a:hover text { fill: #c4a8ff; }
+.refs { font-size: 0.8em; }
+.gist { color: #999999; font-size: 0.85em; margin: 0.1em 0 0.45em; }
 </style>
 
 </head>
@@ -46,81 +58,134 @@
   
   <hr>
 
+  <figure id="map" aria-label="How the pieces of Ag² plug into each other">
+    <svg id="map-svg" viewBox="0 0 720 210" role="img"></svg>
+  </figure>
+
   <div class="entry">
     <div class="item-desc"><em>Bring your own agent: small pieces that each do one thing and work with any agent</em></div>
   </div>
   <div class="entry">
-    <div class="entry-title">Building blocks</div>
+    <div class="entry-title">Apps</div>
     <ul>
-      <li id="philosophy-of-agents"><span class="tag">[Philosophy]</span> Philosophy of agents: Agents from first principles <span class="wip">[ongoing]</span>
-        <ul>
-          <li>Convictions about agents, design and method, from which the rules of my setup are derived</li>
-          <li>The common ground of the pieces below</li>
-        </ul>
-      </li>
-      <li id="anima"><span class="tag">[Harness]</span> anima: The minimal harness <span class="wip">[in design]</span>
-        <ul>
-          <li>The minimal harness that is most natural and most empowering to agents</li>
-          <li>Harness emergence by minimality: a first-principles core on which the rest is built</li>
-        </ul>
-      </li>
-      <li id="senses"><span class="tag">[Standard]</span> senses: Give your agents more senses <span class="wip">[in design]</span>
-        <ul>
-          <li>Open standard (like SKILL.md) for adding to an agent's context programmatically</li>
-          <li>A sense is a small program whose output is injected into the agent's context</li>
-          <li>Give your agents these awarenesses: temporal, context-usage, token-usage, etc.</li>
-          <!-- <li>Home: <a href="https://senses.sh">senses.sh</a></li> once senses.sh serves a page -->
-        </ul>
-      </li>
-      <li id="impulse"><span class="tag">[Tool]</span> impulse: Let your agents wake themselves <span class="wip">[in design]</span>
-        <ul>
-          <li>A command that blocks, and a command that wakes the agent once it is done</li>
-          <li>Complementary to senses: a sense informs the agent, an impulse starts its turn</li>
-          <li id="daemon-agents">Daemon agents: agents woken regularly by an impulse</li>
-        </ul>
-      </li>
-      <li id="agentwire"><span class="tag">[Protocol]</span> agentwire: Any payload between people and agents <span class="wip">[ongoing]</span>
-        <ul>
-          <li>Zero-setup protocol for agentic work: arbitrary payloads between people and agents, as equal participants, anywhere on the internet</li>
-          <li>Plain HTTP: any agent with a shell takes part with <code>curl</code></li>
-          <li>Spec: <a href="https://agentwire.agentics.lwirth.com/agentwire.md">agentwire.md</a> · <a href="https://github.com/luiswirth/agentwire">GitHub:agentwire</a></li>
-        </ul>
-      </li>
+      <li id="vibetogether"><span class="tag">[App]</span> Vibe Together: Multiplayer agents <span class="refs"><a href="https://vibetogether.agentics.lwirth.com">live</a> · <a href="https://github.com/luiswirth/vibetogether">GitHub</a></span>
+        <div class="gist">People, agents and programs in any harness, talking with each other in one room, over agentwire</div></li>
+      <li id="messagent"><span class="tag">[App]</span> messagent: Message and call your agent <span class="refs"><a href="https://github.com/luiswirth/messagent">GitHub</a></span>
+        <div class="gist">No UI of its own: the messenger is the UI</div></li>
+      <li id="voice"><span class="tag">[App]</span> Voice: Talk with your agent <span class="refs"><a href="https://voice.agentics.lwirth.com">live</a> · <a href="https://github.com/luiswirth/vibetogether-voice">GitHub</a></span>
+        <div class="gist">Zero-setup conversational voice mode for you and your agent</div></li>
     </ul>
   </div>
   <div class="entry">
-    <div class="entry-title">Apps</div>
+    <div class="entry-title">Building blocks</div>
     <ul>
-      <li id="vibetogether"><span class="tag">[App]</span> Vibe Together: Collaborative vibe coding <span class="wip">[ongoing]</span>
-        <ul>
-          <li>People, agents and programs in any harness, talking with each other in one room, over agentwire</li>
-          <li>One prompt to paste into each harness; everything runs there, with no page to use</li>
-          <li>Live: <a href="https://vibetogether.agentics.lwirth.com">vibetogether.agentics.lwirth.com</a> · <a href="https://github.com/luiswirth/vibetogether">GitHub:vibetogether</a></li>
-          <li id="voice">Voice: Talk with your agent
-            <ul>
-              <li>Zero-setup conversational voice mode for you and your agent</li>
-              <li>Speech through ElevenLabs, or through local models on the agent's machine</li>
-              <li>Live: <a href="https://voice.agentics.lwirth.com">voice.agentics.lwirth.com</a> · <a href="https://github.com/luiswirth/vibetogether-voice">GitHub:vibetogether-voice</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li id="messagent"><span class="tag">[App]</span> messagent: Message and call your agent <span class="wip">[ongoing]</span>
-        <ul>
-          <li>Message and call your agent in a messaging app, like a friend</li>
-          <li>No UI of its own: the messenger is the UI</li>
-          <li>Telegram first</li>
-          <li>Repository: <a href="https://github.com/luiswirth/messagent">GitHub:messagent</a></li>
-        </ul>
-      </li>
-      <li id="canvas"><span class="tag">[App]</span> Canvas: Generative UI, embraced <span class="wip">[idea]</span>
-        <ul>
-          <li>Your agent talks to you visually, not just in text</li>
-        </ul>
-      </li>
+      <li id="agentwire"><span class="tag">[Protocol]</span> agentwire: Any payload between people and agents <span class="refs"><a href="https://agentwire.agentics.lwirth.com/agentwire.md">spec</a> · <a href="https://github.com/luiswirth/agentwire">GitHub</a></span>
+        <div class="gist">Zero-setup protocol for agentic work: arbitrary payloads between people and agents, as equal participants, anywhere on the internet</div></li>
+      <li id="anima"><span class="tag">[Harness]</span> anima: The minimal harness <span class="wip">[in design]</span>
+        <div class="gist">Harness emergence by minimality: a first-principles core on which the rest is built</div></li>
+      <li id="senses"><span class="tag">[Standard]</span> senses: Give your agents more senses <span class="wip">[in design]</span>
+        <div class="gist">Open standard (like SKILL.md) for adding to an agent's context programmatically</div></li>
+      <li id="impulse"><span class="tag">[Standard]</span> impulse: Let your agents wake themselves <span class="wip">[in design]</span>
+        <div class="gist">Daemon agents: agents woken regularly by an impulse</div></li>
+      <li id="philosophy-of-agents"><span class="tag">[Philosophy]</span> Philosophy of agents: Agents from first principles
+        <div class="gist">The common ground of the pieces above</div></li>
     </ul>
   </div>
 </div>
+
+<script>
+// The map of Ag²: what plugs into what.
+// anima, the harness, is the circle; a building block is a square card, an app a pill.
+// A line joins two pieces that plug into each other; dashed is in design.
+// Each name links to its line in the list below, which says what the piece is.
+(() => {
+  const nodes = {
+    anima: { kind: 'harness', state: 'design' },
+    senses: { kind: 'spec', state: 'design' },
+    agentwire: { kind: 'spec', state: 'runs' },
+    impulse: { kind: 'spec', state: 'design' },
+    'Vibe Together': { kind: 'product', state: 'runs', link: 'vibetogether' },
+    Voice: { kind: 'product', state: 'runs', link: 'voice' },
+    messagent: { kind: 'product', state: 'runs' },
+  };
+  // Two trees of the same shape: anima to the building blocks, agentwire to the apps.
+  const layouts = {
+    wide: {
+      width: 720, height: 210, font: 13,
+      size: { harness: 36, spec: [120, 32], product: [150, 32] },
+      at: { anima: [40, 105], senses: [300, 35], agentwire: [300, 105], impulse: [300, 175],
+        'Vibe Together': [610, 35], messagent: [610, 105], Voice: [610, 175] },
+      tree: (root, kids, { R, L }) => {
+        const x0 = R(root), bus = (x0 + L(kids[0])) / 2 - 10, y0 = nodes[root].y;
+        return kids.map(k => [root, k, nodes[k].y === y0
+          ? [[x0, y0], [L(k), y0]]
+          : [[x0, y0], [bus, y0], [bus, nodes[k].y], [L(k), nodes[k].y]], [bus, y0]]);
+      },
+    },
+    narrow: {
+      width: 360, height: 232, font: 12,
+      size: { harness: 30, spec: [104, 30], product: [112, 30] },
+      at: { anima: [180, 32], senses: [60, 122], agentwire: [180, 122], impulse: [300, 122],
+        'Vibe Together': [60, 212], messagent: [180, 212], Voice: [300, 212] },
+      tree: (root, kids, { B, T }) => {
+        const y0 = B(root), bus = (y0 + T(kids[0])) / 2, x0 = nodes[root].x;
+        return kids.map(k => [root, k, nodes[k].x === x0
+          ? [[x0, y0], [x0, T(k)]]
+          : [[x0, y0], [x0, bus], [nodes[k].x, bus], [nodes[k].x, T(k)]], [x0, bus]]);
+      },
+    },
+  };
+
+  const svg = document.getElementById('map-svg');
+  const el = (tag, attrs, parent = svg, text) => {
+    const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    if (text !== undefined) e.textContent = text;
+    parent.appendChild(e);
+    return e;
+  };
+  const P = pts => pts.map(([x, y], i) => (i ? 'L' : 'M') + x + ' ' + y).join(' ');
+
+  const draw = lay => {
+    svg.replaceChildren();
+    svg.setAttribute('viewBox', `0 0 ${lay.width} ${lay.height}`);
+    svg.style.maxWidth = lay.width + 'px';
+    for (const [id, [x, y]] of Object.entries(lay.at)) {
+      const n = nodes[id], s = lay.size[n.kind];
+      Object.assign(n, { x, y });
+      if (Array.isArray(s)) [n.w, n.h] = s; else n.r = n.w = n.h = s * 2;
+    }
+    const L = id => nodes[id].x - nodes[id].w / 2, R = id => nodes[id].x + nodes[id].w / 2;
+    const T = id => nodes[id].y - nodes[id].h / 2, B = id => nodes[id].y + nodes[id].h / 2;
+    const geo = { L, R, T, B };
+    const lines = [
+      ...lay.tree('anima', ['senses', 'agentwire', 'impulse'], geo),
+      ...lay.tree('agentwire', ['Vibe Together', 'messagent', 'Voice'], geo),
+    ];
+    const joints = new Set();
+    for (const [a, b, pts, joint] of lines) {
+      const design = [a, b].some(id => nodes[id].state !== 'runs');
+      el('path', { d: P(pts), class: 'edge' + (design ? ' design' : '') });
+      joints.add(joint.join(','));
+    }
+    for (const j of joints) { const [cx, cy] = j.split(','); el('circle', { cx, cy, r: 2.5, class: 'joint' }); }
+
+    for (const [id, n] of Object.entries(nodes)) {
+      const a = el('a', { href: '#' + (n.link || id), target: '_self' });
+      const dash = n.state === 'runs' ? '' : ' design';
+      if (n.kind === 'harness') el('circle', { cx: n.x, cy: n.y, r: n.r / 2, class: 'spec' + dash }, a);
+      else el('rect', { x: L(id), y: T(id), width: n.w, height: n.h, rx: n.kind === 'product' ? n.h / 2 : 0,
+        class: (n.kind === 'product' ? 'product' : 'spec') + dash }, a);
+      el('text', { x: n.x, y: n.y + 4.5, 'text-anchor': 'middle', 'font-size': lay.font }, a, id);
+    }
+  };
+
+  const narrow = matchMedia('(max-width: 640px)');
+  const fit = () => draw(narrow.matches ? layouts.narrow : layouts.wide);
+  narrow.addEventListener('change', fit);
+  fit();
+})();
+</script>
 
 </body>
 </html>
