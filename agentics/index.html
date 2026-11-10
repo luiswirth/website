@@ -27,7 +27,6 @@
 #map text { fill: #dddddd; font-family: "Source Code Pro", monospace; font-size: 13px; }
 #map .spec { fill: #111111; stroke: #aaaaaa; }
 #map .product { fill: #111111; stroke: #8b5cf6; }
-#map .design { stroke-dasharray: 4 3; }
 #map .edge { fill: none; stroke: #555555; shape-rendering: crispEdges; }
 #map .joint { fill: #555555; }
 #map a:hover text { fill: #c4a8ff; }
@@ -79,40 +78,28 @@
     <ul>
       <li id="agentwire"><span class="tag">[Protocol]</span> agentwire: Any payload between people and agents <span class="refs"><a href="https://agentwire.agentics.lwirth.com/agentwire.md">spec</a> · <a href="https://github.com/luiswirth/agentwire">GitHub</a></span>
         <div class="gist">Zero-setup protocol for agentic work: arbitrary payloads between people and agents, as equal participants, anywhere on the internet</div></li>
-      <li id="anima"><span class="tag">[Harness]</span> anima: The minimal harness <span class="wip">[in design]</span>
-        <div class="gist">Harness emergence by minimality: a first-principles core on which the rest is built</div></li>
-      <li id="senses"><span class="tag">[Standard]</span> senses: Give your agents more senses <span class="wip">[in design]</span>
-        <div class="gist">Open standard (like SKILL.md) for adding to an agent's context programmatically</div></li>
-      <li id="impulse"><span class="tag">[Standard]</span> impulse: Let your agents wake themselves <span class="wip">[in design]</span>
-        <div class="gist">Daemon agents: agents woken regularly by an impulse</div></li>
-      <li id="philosophy-of-agents"><span class="tag">[Philosophy]</span> Philosophy of agents: Agents from first principles
-        <div class="gist">The common ground of the pieces above</div></li>
     </ul>
   </div>
 </div>
 
 <script>
 // The map of Ag²: what plugs into what.
-// anima, the harness, is the circle; a building block is a square card, an app a pill.
-// A line joins two pieces that plug into each other; dashed is in design.
+// A building block is a square card, an app a pill.
+// A line joins two pieces that plug into each other.
 // Each name links to its line in the list below, which says what the piece is.
 (() => {
   const nodes = {
-    anima: { kind: 'harness', state: 'design' },
-    senses: { kind: 'spec', state: 'design' },
-    agentwire: { kind: 'spec', state: 'runs' },
-    impulse: { kind: 'spec', state: 'design' },
-    'Vibe Together': { kind: 'product', state: 'runs', link: 'vibetogether' },
-    Voice: { kind: 'product', state: 'runs', link: 'voice' },
-    messagent: { kind: 'product', state: 'runs' },
+    agentwire: { kind: 'spec' },
+    'Vibe Together': { kind: 'product', link: 'vibetogether' },
+    Voice: { kind: 'product', link: 'voice' },
+    messagent: { kind: 'product' },
   };
-  // Two trees of the same shape: anima to the building blocks, agentwire to the apps.
+  // One tree: agentwire to the apps.
   const layouts = {
     wide: {
-      width: 720, height: 210, font: 13,
-      size: { harness: 36, spec: [120, 32], product: [150, 32] },
-      at: { anima: [40, 105], senses: [300, 35], agentwire: [300, 105], impulse: [300, 175],
-        'Vibe Together': [610, 35], messagent: [610, 105], Voice: [610, 175] },
+      width: 480, height: 210, font: 13,
+      size: { spec: [120, 32], product: [150, 32] },
+      at: { agentwire: [70, 105], 'Vibe Together': [395, 35], messagent: [395, 105], Voice: [395, 175] },
       tree: (root, kids, { R, L }) => {
         const x0 = R(root), bus = (x0 + L(kids[0])) / 2 - 10, y0 = nodes[root].y;
         return kids.map(k => [root, k, nodes[k].y === y0
@@ -121,10 +108,9 @@
       },
     },
     narrow: {
-      width: 360, height: 232, font: 12,
-      size: { harness: 30, spec: [104, 30], product: [112, 30] },
-      at: { anima: [180, 32], senses: [60, 122], agentwire: [180, 122], impulse: [300, 122],
-        'Vibe Together': [60, 212], messagent: [180, 212], Voice: [300, 212] },
+      width: 360, height: 142, font: 12,
+      size: { spec: [104, 30], product: [112, 30] },
+      at: { agentwire: [180, 32], 'Vibe Together': [60, 122], messagent: [180, 122], Voice: [300, 122] },
       tree: (root, kids, { B, T }) => {
         const y0 = B(root), bus = (y0 + T(kids[0])) / 2, x0 = nodes[root].x;
         return kids.map(k => [root, k, nodes[k].x === x0
@@ -149,31 +135,27 @@
     svg.setAttribute('viewBox', `0 0 ${lay.width} ${lay.height}`);
     svg.style.maxWidth = lay.width + 'px';
     for (const [id, [x, y]] of Object.entries(lay.at)) {
-      const n = nodes[id], s = lay.size[n.kind];
+      const n = nodes[id];
       Object.assign(n, { x, y });
-      if (Array.isArray(s)) [n.w, n.h] = s; else n.r = n.w = n.h = s * 2;
+      [n.w, n.h] = lay.size[n.kind];
     }
     const L = id => nodes[id].x - nodes[id].w / 2, R = id => nodes[id].x + nodes[id].w / 2;
     const T = id => nodes[id].y - nodes[id].h / 2, B = id => nodes[id].y + nodes[id].h / 2;
     const geo = { L, R, T, B };
     const lines = [
-      ...lay.tree('anima', ['senses', 'agentwire', 'impulse'], geo),
       ...lay.tree('agentwire', ['Vibe Together', 'messagent', 'Voice'], geo),
     ];
     const joints = new Set();
-    for (const [a, b, pts, joint] of lines) {
-      const design = [a, b].some(id => nodes[id].state !== 'runs');
-      el('path', { d: P(pts), class: 'edge' + (design ? ' design' : '') });
+    for (const [, , pts, joint] of lines) {
+      el('path', { d: P(pts), class: 'edge' });
       joints.add(joint.join(','));
     }
     for (const j of joints) { const [cx, cy] = j.split(','); el('circle', { cx, cy, r: 2.5, class: 'joint' }); }
 
     for (const [id, n] of Object.entries(nodes)) {
       const a = el('a', { href: '#' + (n.link || id), target: '_self' });
-      const dash = n.state === 'runs' ? '' : ' design';
-      if (n.kind === 'harness') el('circle', { cx: n.x, cy: n.y, r: n.r / 2, class: 'spec' + dash }, a);
-      else el('rect', { x: L(id), y: T(id), width: n.w, height: n.h, rx: n.kind === 'product' ? n.h / 2 : 0,
-        class: (n.kind === 'product' ? 'product' : 'spec') + dash }, a);
+      el('rect', { x: L(id), y: T(id), width: n.w, height: n.h, rx: n.kind === 'product' ? n.h / 2 : 0,
+        class: n.kind }, a);
       el('text', { x: n.x, y: n.y + 4.5, 'text-anchor': 'middle', 'font-size': lay.font }, a, id);
     }
   };
