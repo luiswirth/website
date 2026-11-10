@@ -1,3 +1,20 @@
+/* Source Code Pro, Adobe, SIL Open Font License 1.1. */
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("fonts/source-code-pro.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("fonts/source-code-pro-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
   background-color: #111111;
   color: #FFFFFF;
