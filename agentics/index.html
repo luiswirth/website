@@ -22,14 +22,6 @@
 <title>Ag²: Agnostic Agentics · Luis Wirth</title>
 
 <style>
-#map { margin: 0.8em 0 1.4em; }
-#map-svg { display: block; width: 100%; max-width: 720px; height: auto; overflow: visible; }
-#map text { fill: #dddddd; font-family: "Source Code Pro", monospace; font-size: 13px; }
-#map .spec { fill: #111111; stroke: #aaaaaa; }
-#map .product { fill: #111111; stroke: #8b5cf6; }
-#map .edge { fill: none; stroke: #555555; shape-rendering: crispEdges; }
-#map .joint { fill: #555555; }
-#map a:hover text { fill: #c4a8ff; }
 .refs { font-size: 0.8em; }
 .gist { color: #999999; font-size: 0.85em; margin: 0.1em 0 0.45em; }
 </style>
@@ -55,117 +47,17 @@
   
   <hr>
 
-  <figure id="map" aria-label="How the pieces of Ag² plug into each other">
-    <svg id="map-svg" viewBox="0 0 720 210" role="img"></svg>
-  </figure>
-
   <div class="entry">
     <div class="item-desc"><em>Bring your own agent: small pieces that each do one thing and work with any agent</em></div>
   </div>
   <div class="entry">
     <div class="entry-title">Apps</div>
     <ul>
-      <li id="vibetogether"><span class="tag">[App]</span> Vibe Together: Multiplayer agents <span class="refs"><a href="https://vibetogether.potentialhedge.com">live</a> · <a href="https://github.com/PotentialHedge/vibetogether">GitHub</a></span>
-        <div class="gist">People, agents and programs in any harness, talking with each other in one room, over agentwire</div></li>
-      <li id="messagent"><span class="tag">[App]</span> messagent: Message and call your agent <span class="refs"><a href="https://github.com/luiswirth/messagent">GitHub</a></span>
-        <div class="gist">No UI of its own: the messenger is the UI</div></li>
-      <li id="voice"><span class="tag">[App]</span> Voice: Talk with your agent <span class="refs"><a href="https://agentvoice.lwirth.com">live</a> · <a href="https://github.com/luiswirth/agentvoice">GitHub</a></span>
-        <div class="gist">Zero-setup conversational voice mode for you and your agent</div></li>
-    </ul>
-  </div>
-  <div class="entry">
-    <div class="entry-title">Building blocks</div>
-    <ul>
-      <li id="agentwire"><span class="tag">[Protocol]</span> agentwire: Any payload between people and agents <span class="refs"><a href="https://agentwire.potentialhedge.com/agentwire.md">spec</a> · <a href="https://github.com/PotentialHedge/agentwire">GitHub</a></span>
-        <div class="gist">Zero-setup protocol for agentic work: arbitrary payloads between people and agents, as equal participants, anywhere on the internet</div></li>
+      <li id="vibetogether"><span class="tag">[App]</span> Vibe Together: Multiplayer agents <span class="refs"><a href="https://vibetogether.potentialhedge.com">live</a> · <a href="https://library.potentialhedge.com">library</a> · <a href="https://github.com/PotentialHedge/vibetogether">GitHub</a></span>
+        <div class="gist">Code with your friends, each with your own agent, all in one session</div></li>
     </ul>
   </div>
 </div>
-
-<script>
-// The map of Ag²: what plugs into what.
-// A building block is a square card, an app a pill.
-// A line joins two pieces that plug into each other.
-// Each name links to its line in the list below, which says what the piece is.
-(() => {
-  const nodes = {
-    agentwire: { kind: 'spec' },
-    'Vibe Together': { kind: 'product', link: 'vibetogether' },
-    Voice: { kind: 'product', link: 'voice' },
-    messagent: { kind: 'product' },
-  };
-  // One tree: agentwire to the apps.
-  const layouts = {
-    wide: {
-      width: 480, height: 210, font: 13,
-      size: { spec: [120, 32], product: [150, 32] },
-      at: { agentwire: [70, 105], 'Vibe Together': [395, 35], messagent: [395, 105], Voice: [395, 175] },
-      tree: (root, kids, { R, L }) => {
-        const x0 = R(root), bus = (x0 + L(kids[0])) / 2 - 10, y0 = nodes[root].y;
-        return kids.map(k => [root, k, nodes[k].y === y0
-          ? [[x0, y0], [L(k), y0]]
-          : [[x0, y0], [bus, y0], [bus, nodes[k].y], [L(k), nodes[k].y]], [bus, y0]]);
-      },
-    },
-    narrow: {
-      width: 360, height: 142, font: 12,
-      size: { spec: [104, 30], product: [112, 30] },
-      at: { agentwire: [180, 32], 'Vibe Together': [60, 122], messagent: [180, 122], Voice: [300, 122] },
-      tree: (root, kids, { B, T }) => {
-        const y0 = B(root), bus = (y0 + T(kids[0])) / 2, x0 = nodes[root].x;
-        return kids.map(k => [root, k, nodes[k].x === x0
-          ? [[x0, y0], [x0, T(k)]]
-          : [[x0, y0], [x0, bus], [nodes[k].x, bus], [nodes[k].x, T(k)]], [x0, bus]]);
-      },
-    },
-  };
-
-  const svg = document.getElementById('map-svg');
-  const el = (tag, attrs, parent = svg, text) => {
-    const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
-    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
-    if (text !== undefined) e.textContent = text;
-    parent.appendChild(e);
-    return e;
-  };
-  const P = pts => pts.map(([x, y], i) => (i ? 'L' : 'M') + x + ' ' + y).join(' ');
-
-  const draw = lay => {
-    svg.replaceChildren();
-    svg.setAttribute('viewBox', `0 0 ${lay.width} ${lay.height}`);
-    svg.style.maxWidth = lay.width + 'px';
-    for (const [id, [x, y]] of Object.entries(lay.at)) {
-      const n = nodes[id];
-      Object.assign(n, { x, y });
-      [n.w, n.h] = lay.size[n.kind];
-    }
-    const L = id => nodes[id].x - nodes[id].w / 2, R = id => nodes[id].x + nodes[id].w / 2;
-    const T = id => nodes[id].y - nodes[id].h / 2, B = id => nodes[id].y + nodes[id].h / 2;
-    const geo = { L, R, T, B };
-    const lines = [
-      ...lay.tree('agentwire', ['Vibe Together', 'messagent', 'Voice'], geo),
-    ];
-    const joints = new Set();
-    for (const [, , pts, joint] of lines) {
-      el('path', { d: P(pts), class: 'edge' });
-      joints.add(joint.join(','));
-    }
-    for (const j of joints) { const [cx, cy] = j.split(','); el('circle', { cx, cy, r: 2.5, class: 'joint' }); }
-
-    for (const [id, n] of Object.entries(nodes)) {
-      const a = el('a', { href: '#' + (n.link || id), target: '_self' });
-      el('rect', { x: L(id), y: T(id), width: n.w, height: n.h, rx: n.kind === 'product' ? n.h / 2 : 0,
-        class: n.kind }, a);
-      el('text', { x: n.x, y: n.y + 4.5, 'text-anchor': 'middle', 'font-size': lay.font }, a, id);
-    }
-  };
-
-  const narrow = matchMedia('(max-width: 640px)');
-  const fit = () => draw(narrow.matches ? layouts.narrow : layouts.wide);
-  narrow.addEventListener('change', fit);
-  fit();
-})();
-</script>
 
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ec22ff3412fd4dde9ed8d8ff9aa42a85"}'></script>
