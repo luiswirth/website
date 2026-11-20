@@ -1,6 +1,8 @@
-# website
+---
+description: "The site at lwirth.com: static HTML, no build. Use when changing lwirth.com or anything hosted on it."
+---
 
-The site at lwirth.com: static HTML, no build.
+# website
 
 ## Hosting
 
