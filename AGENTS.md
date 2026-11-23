@@ -4,6 +4,12 @@ description: "The site at lwirth.com: static HTML, no build. Use when changing l
 
 # website
 
+## Content
+
+- A YouTube video is named by its ID alone, as `data-youtube` on a card or a list line:
+  The Worker script `src/worker.js` fills in the rest from the YouTube Data API as the page is served,
+  so nothing about a video is kept in the HTML.
+
 ## Hosting
 
 - Everything on lwirth.com is hosted on Cloudflare:
@@ -12,6 +18,8 @@ description: "The site at lwirth.com: static HTML, no build. Use when changing l
   Named after the repository and served at `<repo>.lwirth.com`, its custom domain.
   This repository is the Worker `website`, served at the apex.
   A push to main deploys it through `.github/workflows/deploy.yml`.
+  Its script runs only for pages and `/yt/` thumbnails; every other file is served directly.
+  Locally, `wrangler dev` serves it, from a `public/` collected as the workflow does.
   Typst documents deploy through `typst-deploy`.
 - Each piece of content has one URL:
   A path on lwirth.com is a page of this site, never another repository's site.
@@ -30,3 +38,5 @@ description: "The site at lwirth.com: static HTML, no build. Use when changing l
   - `cloudflare-ci-token.txt`: Cloudflare Workers scripts only.
     Each deploying repository holds it as the secret `CLOUDFLARE_API_TOKEN`,
     next to `CLOUDFLARE_ACCOUNT_ID`.
+  - `youtube-api-key.txt`: The YouTube Data API key, of the Google Cloud project `lwirth-website`, limited to that API.
+    The Worker holds it as the secret `YOUTUBE_API_KEY`, and `wrangler dev` reads it from `.dev.vars`.
